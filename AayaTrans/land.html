@@ -1,0 +1,363 @@
+<!-- land.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AayaTrans | Digital Payment System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-bus-alt logo-icon"></i>
+            <h1>AayaTrans <span>Digital Payment System</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" onclick="dashboard()" id="dash"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#TripManagement" onclick="tripMgt()" id="mgt"><i class="fas fa-route"></i> <span>Trip Management</span></a></li>
+                <li><a href="#Balance" onclick="balance()"><i class="fas fa-wallet"></i> Top Up</a></li>
+                <li><a href="#support" onclick="support()"><i class="fas fa-headset"></i> Support</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <button class="btn btn-outline notification-badge">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+            </button>
+            <button class="btn btn-primary">
+                <i class="fas fa-user"></i>
+                <span>John Doe</span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="dashboard">
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="sidebar-header">
+                    <div class="avatar">JD</div>
+                    <div class="user-info">
+                        <h3>John Doe</h3>
+                        <p>UCC2025XXXX</p>
+                    </div>
+                </div>
+                <ul class="sidebar-nav">
+                    <li><a href="#" class="active" onclick="dashboard()" id="dash"><i class="fas fa-home"></i> <span>Dashboard</span></a></li>
+                    <li><a href="#Balance" onclick="balance()" id="bal"><i class="fas fa-wallet"></i> <span>Top Up Balance</span></a></li>
+                    <li><a href="#TripManagement" onclick="tripMgt()" id="mgt"><i class="fas fa-route"></i> <span>Trip Management</span></a></li>
+                    <li><a href="#tripH" onclick="tripHis()" id="his"><i class="fas fa-history"></i> <span>Trip History</span></a></li>
+                    <li><a href="#quick-action" onclick="quick()" id="action"><i class="fas fa-qrcode"></i> <span>Quick Actions</span></a></li>
+                    <li><a href="#" onclick="profile()" id="prof"><i class="fas fa-user-cog"></i> <span>Profile Settings</span></a></li>
+                    <li><a href="#" onclick="security()" id="secur"><i class="fas fa-shield-alt"></i> <span>Security</span></a></li>
+                    <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt" ></i> <span>Logout</span></a></li>
+                </ul>
+            </div>
+            
+            <!-- Main Dashboard Content -->
+            <div class="main-content">
+                <div class="welcome-banner">
+                    <h2>Welcome, John!</h2>
+                    <p>Manage your shuttle trips, check your balance, and top up your account with our secure payment system. Enjoy seamless transportation across campus.</p>
+                </div>
+                
+                <div class="cards-container" id="Balance">
+                    <!-- Balance Card -->
+                    <div class="card balance-card">
+                        <div class="card-header">
+                            <h3>Current Balance</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                        </div>
+                        <div class="balance-amount">GHS 24.50</div>
+                        <div class="balance-info">Last top-up: Today, 10:30 AM (GHS 30.00)</div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary btn-sm" id="topUpBtn" onclick="modal()">
+                                <i class="fas fa-plus"></i> Top Up
+                            </button>
+                            <button class="btn btn-outline-dark btn-sm" id="his" onclick="tripHis()">
+                                <i class="fas fa-history"></i> History
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Trip Management Card -->
+                    <div class="card" id="TripManagement">
+                        <div class="card-header">
+                            <h3>Trip Management</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                        </div>
+                        <p>Start or end your shuttle trip with a single tap</p>
+                        <div class="trip-info">
+                            <div class="trip-status status-inactive">No active trip</div>
+                            <div>Current fare: <strong>GHS 2.00</strong></div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-success btn-sm" id="startTripBtn">
+                                <i class="fas fa-play"></i> Start Trip
+                            </button>
+                            <button class="btn btn-danger btn-sm" id="endTripBtn" disabled>
+                                <i class="fas fa-stop"></i> End Trip
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Trips Card -->
+                    <div class="card" id="tripH">
+                        <div class="card-header">
+                            <h3>Recent Trips</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                        </div>
+                        <div class="trip-history">
+                            <div class="history-item">
+                                <div class="history-details">
+                                    <span class="history-location">SRC → Science</span>
+                                    <span class="history-time">Today, 9:15 AM - 9:30 AM</span>
+                                </div>
+                                <div class="history-amount">-GHS 2.00</div>
+                            </div>
+                            <div class="history-item">
+                                <div class="history-details">
+                                    <span class="history-location">New Site → Science</span>
+                                    <span class="history-time">Yesterday, 2:45 PM - 3:00 PM</span>
+                                </div>
+                                <div class="history-amount">-GHS 2.00</div>
+                            </div>
+                            <div class="history-item">
+                                <div class="history-details">
+                                    <span class="history-location">Science → Old Site</span>
+                                    <span class="history-time">Yesterday, 6:30 PM - 6:45 PM</span>
+                                </div>
+                                <div class="history-amount">-GHS 2.00</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-dark" id="viewAllTripsBtn" style="margin-top: 1rem; width: 100%;">
+                            View All Trips
+                        </button>
+                    </div>
+                    
+                    <!-- Quick Actions Card -->
+                    <div class="card" id="quick-action">
+                        <div class="card-header">
+                            <h3>Quick Actions</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                        </div>
+                        <div class="quick-actions-grid">
+                            <div class="quick-action">
+                                <i class="fas fa-qrcode"></i>
+                                <span>Show QR Code</span>
+                            </div>
+                            <div class="quick-action">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Shuttle Locations</span>
+                            </div>
+                            <div class="quick-action">
+                                <i class="fas fa-bell"></i>
+                                <span>Notifications</span>
+                            </div>
+                            <div class="quick-action">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Security</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Top Up Your Balance</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="amount">Amount (GHS)</label>
+                    <input type="number" id="amount" class="form-control" placeholder="Enter amount" min="1" step="0.5" value="30">
+                </div>
+                
+                <h4>Select Payment Method</h4>
+                <div class="payment-methods">
+                    <div class="payment-method selected" data-method="card">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <p>Card</p>
+                    </div>
+                    <div class="payment-method" data-method="momo">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>MTN MoMo</p>
+                    </div>
+                    <div class="payment-method" data-method="atmoney">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>ATMoney</p>
+                    </div>
+                    <div class="payment-method" data-method="telecel">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>Telecel Cash</p>
+                    </div>
+                    <div class="payment-method" data-method="vodafone">
+                        <i class="fas fa-mobile-alt"></i>
+                        <p>GhanaPay</p>
+                    </div>
+                </div>
+                
+                <div id="cardPaymentFields">
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9012 3456">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" class="form-control" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" class="form-control" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="mobilePaymentFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <input type="tel" id="mobileNumber" class="form-control" placeholder="024 123 4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="network">Network Provider</label>
+                        <select id="network" class="form-control">
+                            <option value="">Select network</option>
+                            <option value="mtn">MTN</option>
+                            <option value="at">AirtelTigo</option>
+                            <option value="vodafone">Vodafone</option>
+                            <option value="telecel">Telecel</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline-dark close-modal" id="ff">Cancel</button>
+                <button class="btn btn-primary" id="confirmPayment">Pay GHS 30.00</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- All Trips Section (hidden by default) -->
+    <section id="TripHistory">
+        <div class="container">
+            <h2>All Trips</h2>
+            <div class="trip-history">
+                <!-- Example of all trips; add more entries as needed -->
+                <div class="history-item">
+                    <div class="history-details">
+                        <span class="history-location">Old Site → NLT</span>
+                        <span class="history-time">Today, 9:15 AM - 9:30 AM</span>
+                    </div>
+                    <div class="history-amount">-GHS 2.00</div>
+                </div>
+                <div class="history-item">
+                    <div class="history-details">
+                        <span class="history-location">SRC → SandWitch Lecture Theatre</span>
+                        <span class="history-time">Yesterday, 2:45 PM - 3:00 PM</span>
+                    </div>
+                    <div class="history-amount">-GHS 2.00</div>
+                </div>
+                <div class="history-item">
+                    <div class="history-details">
+                        <span class="history-location">Old Site → Science</span>
+                        <span class="history-time">Yesterday, 6:30 PM - 6:45 PM</span>
+                    </div>
+                    <div class="history-amount">-GHS 2.00</div>
+                </div>
+                <!-- Additional past trips can be listed here -->
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- Footer -->
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AayaTrans</h3>
+                <p>Providing seamless and efficient transportation services across the University of Cape Coast campus with our innovative digital payment solution.</p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Trip Management</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Payment Methods</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Schedule & Routes</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-phone"></i> +233 24 123 4567</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> support@aayatrans-ucc.com</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Transport Office, UCC Main Campus</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Download Our App</h3>
+                <p>Get the best experience on your mobile device</p>
+                <div class="app-download">
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i>
+                        <div class="app-text">
+                            <span>GET IT ON</span>
+                            <span>Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-app-store"></i>
+                        <div class="app-text">
+                            <span>Download on the</span>
+                            <span>App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 Aayalolo Shuttle Service. All rights reserved. | Developed by AayaTrans Group
+        </div>
+        
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

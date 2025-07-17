@@ -1,0 +1,201 @@
+/* Login/Signup styling*/
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url(images/images.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  
+}
+
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f4f7fb;
+  background-image: url('images/login-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  
+}
+
+.auth-body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+  z-index: -1;
+}
+
+
+.auth-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.auth-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #d32f2f;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  background: #d32f2f;
+  color: white;
+  padding: 20px;
+  transition: width 0.3s ease, padding 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  padding: 0;
+}
+
+.sidebar h2,
+.sidebar nav {
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed h2,
+.sidebar.collapsed nav {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar nav ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 12px;
+  background: #388e3c;
+  margin: 5px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar nav ul li i {
+  font-size: 18px;
+  min-width: 20px;
+}
+
+.sidebar.collapsed .link-text {
+  display: none;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  left: 6px;
+  z-index: 1000;
+  background: #fbc02d;
+  border: none;
+  font-size: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #f4f7fb;
+  flex: 1;
+  padding: 20px;
+  background: url('images/dashboard-images.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+.page {
+  max-width: 600px;
+  margin: auto;
+}
+
+.balance-box {
+  background: #fff3e0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  color: #d32f2f;
+  margin: 15px 0;
+}
+
+.action-group {
+  display: flex;
+  gap: 10px;
+}
+
+.top-up input {
+  width: calc(100% - 100px);
+  padding: 10px;
+}
+
+.top-up button {
+  width: 100px;
+  padding: 10px;
+  background-color: #fbc02d;
+  border: none;
+  color: black;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.notifications {
+  margin-top: 10px;
+  color: green;
+}
+
+.auth-body {
+  background-image: url(images/images.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+#details{
+  background-color: #ccc;
+  background-position: center;
+  padding: 30px;
+  justify-content: center;
+  align-content: center;
+}
+
+
+
+
